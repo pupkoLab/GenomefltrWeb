@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="h-full" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="GenomeFLTR: Filtering Reads Made Easy">
+  <meta name="keywords" content="Webserver, GenomeFLTR, Contamination, Filtering Reads">
+  <meta name="author" content="Dotan Edo, Alburquerque Michael, Wygoda Elya,  Huchon Dorothee, Pupko Tal">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta property="og:site_name" content="GenomeFLTR">
+  <meta property="og:title" content="GenomeFLTR" />
+  <meta property="og:description" content="Filtering Reads Made Easy" />
+  <meta property="og:url" content="https://genomefltr.tau.ac.il/" />
+  <meta property="og:image:secure_url" itemprop="image" content="https://genomefltr.tau.ac.il/preview.png">
+  <meta property="og:type" content="website" />
+  <title >Genomefltr</title>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <link rel="icon" type="image/x-icon" href="{{url_for('static',filename='images/dna.svg')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/output.css')}}">
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+  {% block head %}{% endblock %}  
+</head>
+
+<body class="font-sans h-full">
+  <div class='w-full h-screen bg-no-repeat bg-cover' 
+       style="background-image: url({{file_name}}); min-width: 100%; max-width: 100%; overflow: auto;">
+
+    {% block body %}{% endblock %}
+  </div>
+</body>
+  {% block scripts %}{% endblock %}
+</html>

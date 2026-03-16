@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block body %} 
+   
+
+    <div style="text-align: center;"> <br><br><br>
+        
+    <br><br>
+    
+    {% for process_id in processes_list %}
+    
+            process_id: {{process_id}} <br>
+            
+            {% for prefix in job_prefixes %}
+            
+                {{prefix}}: {{processes_state_dict[process_id].get_job_state(prefix)}} <br>
+                
+            {% endfor %}
+            
+            <br>
+        
+     {% endfor %}
+     
+     <br><br>waiting_jobs_list: {{waiting_jobs_list}}
+     
+     </div>
+     
+    <script>
+        
+        setInterval(function(){
+            window.location.reload();
+        }, 3000)
+        
+        //to listen for process updates
+        /*const eventSource = new EventSource("/stream/") 
+        eventSource.onmessage = function(e) {
+            alert("called");
+            window.location.reload();
+        }*/
+        
+    </script> 
+    
+{% endblock %}
+
